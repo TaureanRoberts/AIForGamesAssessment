@@ -3,12 +3,13 @@ from vector2_class import Vector2
 from graph_class import Graph
 import math
 
-    #Prototype:
-    #Descripton:
-    #PreCondition:
-    #PostCondition:
-    #Protection Level:
+    #Prototype: def finding_neighbors(pos, search)
+    #Descripton: Finds the neighbors using vector position and uses a searchspace
+    #PreCondition: Uses a list of neighbors that are adjacent to the current position
+    #PostCondition: Returns the list of neighbors that meet the conditions
+    #Protection Level: Public
 def finding_neighbors(pos, search):
+    '''Finds the neighbors using vector position and uses a searchspace'''
     nays = []
     nays.append(pos + Vector2(-1, 1)) #Top Left
     nays.append(pos + Vector2(0, 1)) #Top
@@ -25,12 +26,13 @@ def finding_neighbors(pos, search):
                 neighbors.append(node)
     return neighbors
 
-    #Prototype:
-    #Descripton:
-    #PreCondition:
-    #PostCondition:
-    #Protection Level:
+    #Prototype: def algorithm(start_node, goal_node, searchspace)
+    #Descripton: The core function for the a-star algorithm
+    #PreCondition: Takes in two lists, a open and closed list that take the nodes that are being traversed
+    #PostCondition: Returns the list nodes that are in in both lists that has been traversed
+    #Protection Level: Public
 def algorithm(start_node, goal_node, searchspace):
+    '''The a-star algorithm'''
     open_list = []
     closed_list = []
     current_node = start_node
@@ -69,12 +71,13 @@ def algorithm(start_node, goal_node, searchspace):
             node.calculate_f_score()
             # 2.4.3 If it is in the open list
 
-    #Prototype:
-    #Descripton:
-    #PreCondition:
-    #PostCondition:
-    #Protection Level:
-def main():
+    #Prototype: def testing_astar()
+    #Descripton: Testing function where the astar is being tested by my standards
+    #PreCondition: Uses a graph, start node, and goal node
+    #PostCondition: goes through the graph and nodes and uses the parents to go back to the start node
+    #Protection Level: public
+def testing_astar():
+    '''Algorithm testing'''
     grid = Graph(Vector2(7, 7))
     grid.make_nodes()
     grid.nodes[23].can_traverse = False
