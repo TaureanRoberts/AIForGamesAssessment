@@ -182,6 +182,12 @@ def test_function(func):
 
 #DO NOT MODIFY
 
+
+#Prototype: def main()
+#Description: Takes the my custom astar algorithm and runs it against the specified test when all tests pass it displays the path.
+#PreCondition: Takes the astar algorithm and is inserted in the function for testing
+#PostConditon: returns the path that has been passed with walls and traced parents
+#ProtectionLevel: Public
 def main():
     '''the main'''
     test_function(algorithm)

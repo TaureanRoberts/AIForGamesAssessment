@@ -1,7 +1,14 @@
 from vector2_class import Vector2
 import math
 class Node(object):
+
+    #Prototype: def __init__(self, pos, _guid)
+    #Description: Information that is needed for the nodes in the list
+    #Precondition: Uses all the key things that are needed in a node
+    #PostCondition: The node is assigned a guid, position of a vector2, a g/h/f score, allows parents to be signed and if its a wall
+    #ProtectionLevel: Public
     def __init__(self, pos, _guid):
+        '''Information that nodes need to know'''
         self.guid = _guid
         self.position = pos
         self.g_score = 0
@@ -12,8 +19,7 @@ class Node(object):
 
     #Prototype: def calc_g_score(self, node)
     #Description: Calculates the g score of the nodes in the list
-    #Arguements: uses self and takes a node as the arguement
-    #PreCondition: Takes in a Vector2
+    #PreCondition: Takes in a Vector2 or position to
     #PostCondition: Gives a value due to the nodes position to the current node
     #Protection Level: Public
     def calc_g_score(self, node):
@@ -39,25 +45,22 @@ class Node(object):
 
     #Prototype: calc_h_score(self, node)
     #Description: Calculates the h score or the heuristic for the node
-    #Arguements: uses self and  takes a node
     #PreCondition: Takes the current nodes position and use manhattan distance to find the h score
     #PostCondition: gives a the nodes a heuristic for calculation
     #ProtectionLevel: public
     def calc_h_score(self, node):
         self.h_score = (abs(self.position.x_pos - node.position.x_pos) + abs(self.position.y_pos - node.position.y_pos)) * 10
 
-    #Prototype: def calc_fscore(self)
+    #Prototype: def calc_f_score(self)
     #Description: Combines the score of the g and h score to find the hscore
-    #Arguements: Takes in no arguements other than self
     #PreCondition: Add the results of the g and h scores
     #PostCondition: The total of the two scores gives the f score
     #ProtectionLevel: Public
     def calc_f_score(self):
         self.f_score = self.g_score + self.h_score
 
-    #Prototype: def set_parent 
-    #Descripton: Sets the parents of the nodes of the 
-    #Arguements: Uses self and Takes a node
+    #Prototype: def set_parent(self, node)
+    #Descripton: Sets the nodes parents and can trace node to start
     #PreCondition: Checks the nodes and can trace the nodes to the start
     #PostCondition: A list of nodes that allows traceing to the start
     #Protection Level: Public

@@ -1,5 +1,11 @@
 import math
 class Vector2(object):
+    
+    #Prototype: def __init__(self, rhs, lhs)
+    #Description: Uses the vectors to give positions and size to be set and adjusted
+    #PreCondition: Takes the takes the two axis
+    #PostCondition: Assigns the x axis the the left hand side and the y axis to the right hand side
+    #ProtectionLevel: Public
     def __init__(self, lhs, rhs):
         self.x_pos = lhs
         self.y_pos = rhs

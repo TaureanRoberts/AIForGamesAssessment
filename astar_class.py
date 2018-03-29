@@ -69,21 +69,15 @@ def algorithm(start_node, goal_node, searchspace):
             node.calculate_g_score(current_node)
             node.calculate_h_score(goal_node)
             node.calculate_f_score()
-            # 2.4.3 If it is in the open list
 
-    #Prototype: def testing_astar()
-    #Descripton: Testing function where the astar is being tested by my standards
-    #PreCondition: Uses a graph, start node, and goal node
-    #PostCondition: goes through the graph and nodes and uses the parents to go back to the start node
-    #Protection Level: public
-def testing_astar():
-    '''Algorithm testing'''
-    grid = Graph(Vector2(7, 7))
-    grid.make_nodes()
-    grid.nodes[23].can_traverse = False
-    grid.nodes[24].can_traverse = False
-    grid.nodes[25].can_traverse = False
-    s = grid.nodes[10]
-    g = grid.nodes[38]
-    p = algorithm(s, g, grid)
-    a = 0
+def main():
+    grid = Graph(Vector2(7, 7)) #Graph size
+    grid.make_nodes() #makes nodes 
+    grid.nodes[23].can_traverse = False #wall 1
+    grid.nodes[24].can_traverse = False #wall 2
+    grid.nodes[25].can_traverse = False #wall 3
+    s = grid.nodes[10] #starting node
+    g = grid.nodes[38] #goal node
+    p = algorithm(s, g, grid) # astar where the start, goal, and graph are taken in
+
+main()
